@@ -406,92 +406,46 @@
     scroll-behavior: smooth;
   }
 
-  /* Make body relative so the full-page background stretches with scrolling content */
-  body {
-    position: relative;
-    min-height: 100%;
-  }
-
-  /* ================= 1. Full-Page Scrollable Background Canvas ================= */
-  .bg-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    overflow: hidden;
+  /* ================= 1. Fixed Background (bg.jpg) with Edge-Fading ================= */
+  .bg-fixed-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
     pointer-events: none;
-  }
-
-  .bg-slice {
-    position: absolute;
-    left: 0;
-    width: 100%;
+    background-image: url('bg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-  }
+    opacity: 1; /* 100% full visibility */
 
-  /* 1st Image (Top of the page): Fades into 2nd image as you scroll */
-  .bg-top {
-    top: 0;
-    height: 42%;
-    mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
-  }
-
-  /* 2nd Image (Middle of the page): Blends from 1st and into 3rd image */
-  .bg-mid {
-    top: 33%;
-    height: 42%;
-    mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%);
-  }
-
-  /* 3rd Image (Bottom of the page): Emerges as you scroll to the end */
-  .bg-bot {
-    top: 65%;
-    height: 35%;
-    bottom: 0;
-    mask-image: linear-gradient(to top, black 65%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to top, black 65%, transparent 100%);
-  }
-
-  /* Dark translucent overlay covering the entire scroll height for text readability */
-  .bg-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(11, 15, 25, 0.88);
-    backdrop-filter: blur(2px);
-    z-index: -1;
-    pointer-events: none;
+    /* Softly fades the outer edges and bottom into the page background */
+    mask-image: radial-gradient(ellipse at 50% 45%, rgba(0, 0, 0, 1) 55%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 45%, rgba(0, 0, 0, 1) 55%, rgba(0, 0, 0, 0) 100%);
   }
 
   /* ================= 2. Left Sidebar Navigation (TOC) ================= */
   .sidebar-toc {
     position: fixed;
-    left: 24px;
+    left: 18px;
     top: 50%;
     transform: translateY(-50%);
-    width: 190px;
-    max-height: 70vh;
+    width: 175px;
+    max-height: 75vh;
     overflow-y: auto;
-    background: rgba(17, 24, 39, 0.75);
+    background: rgba(17, 24, 39, 0.85);
     backdrop-filter: blur(12px);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 16px 12px;
+    padding: 14px 10px;
     z-index: 99;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   }
 
   .toc-title {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -504,15 +458,15 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 3px;
   }
 
   .toc-link {
     display: block;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
     text-decoration: none;
-    padding: 6px 10px;
+    padding: 6px 8px;
     border-radius: 6px;
     transition: all 0.2s ease;
     white-space: nowrap;
@@ -521,7 +475,7 @@
   }
 
   .toc-link:hover {
-    background: rgba(56, 189, 248, 0.1);
+    background: rgba(56, 189, 248, 0.12);
     color: var(--accent);
     transform: translateX(4px);
     text-decoration: none;
@@ -539,8 +493,8 @@
     background: var(--accent);
   }
 
-  /* Hide sidebar on smaller screens to prevent content overlap */
-  @media (max-width: 1300px) {
+  /* Hide sidebar only on mobile screens */
+  @media (max-width: 1100px) {
     .sidebar-toc {
       display: none;
     }
@@ -587,16 +541,8 @@
   </style>
 </head>
 <body>
-<!-- Multi-Image Gradient Background Canvas -->
-  <div class="bg-canvas">
-    <!-- Top Image -->
-    <div class="bg-slice bg-top" style="background-image: url('bg-top.jpg');"></div>
-    <!-- Middle Image -->
-    <div class="bg-slice bg-mid" style="background-image: url('bg-mid.jpg');"></div>
-    <!-- Bottom Image -->
-    <div class="bg-slice bg-bot" style="background-image: url('bg-bot.jpg');"></div>
-  </div>
-  <div class="bg-overlay"></div>
+<!-- Fixed Background Image (100% visibility with edge fade) -->
+  <div class="bg-fixed-canvas"></div>
 
   <!-- Left Floating Table of Contents Sidebar -->
   <nav class="sidebar-toc">
@@ -604,13 +550,13 @@
     <ul class="toc-list">
       <li><a href="#about" class="toc-link">About Me</a></li>
       <li><a href="#education" class="toc-link">Education</a></li>
-      <li><a href="#skills" class="toc-link">Technical & Language Skills</a></li>
+      <li><a href="#skills" class="toc-link">Skills</a></li>
       <li><a href="#experience" class="toc-link">Work Experience</a></li>
-      <li><a href="#projects" class="toc-link">Relevant Academic Projects</a></li>
-      <li><a href="#research" class="toc-link">Individual Research Project</a></li>
+      <li><a href="#projects" class="toc-link">Academic Projects</a></li>
+      <li><a href="#research" class="toc-link">Individual Research</a></li>
       <li><a href="#hackathons" class="toc-link">Hackathons</a></li>
-      <li><a href="#awards" class="toc-link">Awards, Competitions & Affiliation</a></li>
-      <li><a href="#favourite-song" class="toc-link">One of My Favourite Songs</a></li>
+      <li><a href="#awards" class="toc-link">Awards</a></li>
+      <li><a href="#favourite-song" class="toc-link">Favourite Song</a></li>
     </ul>
   </nav>
   <div class="container">
@@ -903,6 +849,34 @@
             <div class="hack-date-line">Date: 24th - 25th October, 2026</div>
           </div>
 
+          <!-- Row 1: Position -->
+          <div class="hack-meta-row">
+            <span class="hack-meta-label">Position:</span>
+            <span class="hack-meta-val">Team ML Engineer</span>
+          </div>
+
+          <!-- Row 2: Collaborators (3 Members) -->
+          <div class="hack-collab-section">
+            <span class="hack-meta-label">Collaborators:</span>
+            <div class="collab-list">
+              <!-- Member 1 -->
+              <div class="collab-item">
+                <div class="collab-name">Kristina Seren, University of Kent</div>
+                <div class="collab-role">Team Computer Engineer</div>
+              </div>
+              <!-- Member 2 -->
+              <div class="collab-item">
+                <div class="collab-name">Jamie Tai, University of Kent</div>
+                <div class="collab-role">Team Software Engineer</div>
+              </div>
+              <!-- Member 3 -->
+              <div class="collab-item">
+                <div class="collab-name">Anne Qin, Imperial College London</div>
+                <div class="collab-role">Team Scientist</div>
+              </div>
+            </div>
+          </div>
+
           <div class="hack-links-row">
             <a href="https://devpost.com/software/auroratime" target="_blank" rel="noopener noreferrer" class="hack-btn">
               🔗 Devpost
@@ -933,6 +907,29 @@
           <div class="hack-info-group">
             <div class="hack-project-title">BULLISH!</div>
             <div class="hack-date-line">Date: 7th - 8th November, 2026</div>
+          </div>
+
+          <!-- Row 1: Position -->
+          <div class="hack-meta-row">
+            <span class="hack-meta-label">Position:</span>
+            <span class="hack-meta-val">Team Econometrician</span>
+          </div>
+
+          <!-- Row 2: Collaborators (2 Members) -->
+          <div class="hack-collab-section">
+            <span class="hack-meta-label">Collaborators:</span>
+            <div class="collab-list">
+              <!-- Member 1 -->
+              <div class="collab-item">
+                <div class="collab-name">Kevin Tran, University of Warwick</div>
+                <div class="collab-role">Team Computer Engineer</div>
+              </div>
+              <!-- Member 2 -->
+              <div class="collab-item">
+                <div class="collab-name">Akshat Jain, University of Warwick</div>
+                <div class="collab-role">Team Computer Engineer</div>
+              </div>
+            </div>
           </div>
 
           <div class="hack-links-row">
