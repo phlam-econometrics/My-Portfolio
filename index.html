@@ -42,20 +42,6 @@
     padding-bottom: 60px;
   }
 
-If you are doing it inline directly on the <body> tag:
-
-Write it like this:
-
-<body style="background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('./bg.jpg') center / cover fixed no-repeat;">
-
-How this works:
-
-  - linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)) paints a 35% black
-    tint directly over bg.jpg.
-  - If you want it even darker, change 0.35 to 0.5 (50% darker) or 0.6 (60%
-    darker).
-
-
     a { color: var(--accent); text-decoration: none; transition: all 0.2s; }
     a:hover { opacity: 0.8; text-decoration: underline; }
 
@@ -191,6 +177,17 @@ How this works:
       font-weight: 500;
     }
 
+    /* Apply to every unordered list on the website */
+    ul {
+      list-style-type: "- ";
+      padding-left: 1.5rem; /* Ensures consistent alignment and spacing */
+    }
+
+    /* Optional: Handles spacing for nested lists so they look clean */
+    ul ul {
+      padding-left: 1.2rem;
+    }
+    
     /* Skills */
     .skills-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
 
