@@ -401,6 +401,140 @@
       text-decoration: none;
     }
 
+    /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* ================= 1. Multi-Image Background Gradient Blend ================= */
+  .bg-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .bg-slice {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Top image: fades out downward */
+  .bg-top {
+    top: 0;
+    height: 45vh;
+    mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+  }
+
+  /* Middle image: smooth blend from top and bottom */
+  .bg-mid {
+    top: 30vh;
+    height: 45vh;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 65%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 65%, transparent 100%);
+  }
+
+  /* Bottom image: fades out upward */
+  .bg-bot {
+    bottom: 0;
+    height: 45vh;
+    mask-image: linear-gradient(to top, black 30%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, black 30%, transparent 100%);
+  }
+
+  /* Dark frosted overlay to preserve text contrast and readability */
+  .bg-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 15, 25, 0.88);
+    backdrop-filter: blur(2px);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* ================= 2. Left Sidebar Navigation (TOC) ================= */
+  .sidebar-toc {
+    position: fixed;
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 190px;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: rgba(17, 24, 39, 0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 12px;
+    z-index: 99;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .toc-title {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .toc-link {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .toc-link:hover {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent);
+    transform: translateX(4px);
+    text-decoration: none;
+  }
+
+  /* Custom scrollbar for sidebar */
+  .sidebar-toc::-webkit-scrollbar {
+    width: 4px;
+  }
+  .sidebar-toc::-webkit-scrollbar-thumb {
+    background: #374151;
+    border-radius: 4px;
+  }
+  .sidebar-toc::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+  }
+
+  /* Hide sidebar on smaller screens to prevent content overlap */
+  @media (max-width: 1300px) {
+    .sidebar-toc {
+      display: none;
+    }
+  }
+    
     /* Awards Grid */
     .grid-2 {
       display: grid;
@@ -442,7 +576,32 @@
   </style>
 </head>
 <body>
+<!-- Multi-Image Gradient Background Canvas -->
+  <div class="bg-canvas">
+    <!-- Top Image -->
+    <div class="bg-slice bg-top" style="background-image: url('bg-top.jpg');"></div>
+    <!-- Middle Image -->
+    <div class="bg-slice bg-mid" style="background-image: url('bg-mid.jpg');"></div>
+    <!-- Bottom Image -->
+    <div class="bg-slice bg-bot" style="background-image: url('bg-bot.jpg');"></div>
+  </div>
+  <div class="bg-overlay"></div>
 
+  <!-- Left Floating Table of Contents Sidebar -->
+  <nav class="sidebar-toc">
+    <div class="toc-title">📑 Navigation</div>
+    <ul class="toc-list">
+      <li><a href="#about" class="toc-link">About Me</a></li>
+      <li><a href="#education" class="toc-link">Education</a></li>
+      <li><a href="#skills" class="toc-link">Skills</a></li>
+      <li><a href="#experience" class="toc-link">Experience</a></li>
+      <li><a href="#projects" class="toc-link">Projects</a></li>
+      <li><a href="#research" class="toc-link">Research</a></li>
+      <li><a href="#hackathons" class="toc-link">Hackathons</a></li>
+      <li><a href="#favourite-song" class="toc-link">Favourite Song</a></li>
+      <li><a href="#awards" class="toc-link">Awards</a></li>
+    </ul>
+  </nav>
   <div class="container">
 
     <!-- HEADER / HERO -->
