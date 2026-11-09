@@ -26,20 +26,35 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      background-color: var(--bg);
-      background-image: url('./bg.jpg');
-      filter: brightness(0.3);
-      background-attachment: fixed;
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      color: var(--text-main);
-      font-family: var(--font-sans);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      padding-bottom: 60px;
-    }
+  body {
+    background-color: var(--bg);
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('./bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 60px;
+  }
+
+If you are doing it inline directly on the <body> tag:
+
+Write it like this:
+
+<body style="background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('./bg.jpg') center / cover fixed no-repeat;">
+
+How this works:
+
+  - linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)) paints a 35% black
+    tint directly over bg.jpg.
+  - If you want it even darker, change 0.35 to 0.5 (50% darker) or 0.6 (60%
+    darker).
+
 
     a { color: var(--accent); text-decoration: none; transition: all 0.2s; }
     a:hover { opacity: 0.8; text-decoration: underline; }
@@ -836,7 +851,7 @@
             <div class="hack-project-title">AuroraTime</div>
             <div class="hack-uni-name" style="margin-top: 4px;">Team ML Engineer</div>
             <div class="hack-date-line">Date: 24th - 25th October, 2026</div>
-          </div> <!-- 👈 Added missing </div> for hack-info-group -->
+          </div>
 
           <div class="hack-links-row">
             <a href="https://devpost.com/software/auroratime" target="_blank" rel="noopener noreferrer" class="hack-btn">
@@ -846,7 +861,7 @@
               💻 GitHub
             </a>
           </div>
-        </div> <!-- 👈 Added missing </div> for hack-square-card -->
+        </div>
 
         <!-- COLUMN 2: WHACK -->
         <div class="hack-square-card">
