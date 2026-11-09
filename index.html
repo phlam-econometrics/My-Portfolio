@@ -941,9 +941,11 @@
     <section id="favourite-song">
       <h2 class="section-title">One of my favourite songs</h2>
       <div class="card" style="padding: 16px;">
+        <!-- The wrapper box cuts off anything outside its edges -->
         <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; border: 1px solid var(--border);">
-          <iframe style="width: 100%; height: 100%; border: 0;" 
-                  src="https://docs.google.com/presentation/d/e/2PACX-1vSYEX-I7fMiBy5NwDnDqpDRI_YFOm_7KaVMuloYo7O1dBOGb9TYERMy92BmhM8tM9knb9-z4nGC1IC2/pubembed?start=true&loop=false&delayms=3000" 
+          <!-- We make the video 115% tall and push the Google bar down out of sight -->
+          <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 115%; border: 0;" 
+                  src="https://docs.google.com/presentation/d/e/2PACX-1vSYEX-I7fMiBy5NwDnDqpDRI_YFOm_7KaVMuloYo7O1dBOGb9TYERMy92BmhM8tM9knb9-z4nGC1IC2/pubembed?start=true&loop=false&delayms=3000"  
                   title="One of my favourite songs" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                   referrerpolicy="strict-origin-when-cross-origin" 
@@ -952,6 +954,7 @@
         </div>
       </div>
     </section>
+
 
     <!-- FOOTER -->
     <footer>
