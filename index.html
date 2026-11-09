@@ -177,10 +177,14 @@
       font-weight: 500;
     }
 
-    /* Apply to every unordered list on the website */
-    ul {
-      list-style-type: "- ";
-      padding-left: 1.5rem; /* Ensures consistent alignment and spacing */
+    /* Clean Experience Rows (No Bullet Points) */
+    .exp-row {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .exp-row + .exp-row {
+      margin-top: 6px;
     }
     
     /* Skills */
@@ -704,11 +708,11 @@
               <div class="exp-title">Research Assistant</div>
               <div class="exp-org">Hong Kong Baptist University</div>
             </div>
-            <div class="card-date" style="color: #facc15; background: rgba(250, 204, 21, 0.1); border-color: rgba(250, 204, 21, 0.25);">Sep 2026 – Present</div>
+            <div class="card-date">Sep 2026 – Present</div>
           </div>
-          <ul>
-            <li>Economics research focusing on data compilation, quantitative empirical modeling, and academic literature review.</li>
-          </ul>
+          <div class="exp-row">
+            Economics research focusing on data compilation, quantitative empirical modeling, and academic literature review.
+          </div>
         </div>
 
         <!-- Census -->
@@ -718,26 +722,30 @@
               <div class="exp-title">Summer Internship</div>
               <div class="exp-org">Census and Statistics Department, HKSAR</div>
             </div>
-            <div class="card-date" style="color: #facc15; background: rgba(250, 204, 21, 0.1); border-color: rgba(250, 204, 21, 0.25);">Jun 2026 – Aug 2026</div>
+            <div class="card-date">Jun 2026 – Aug 2026</div>
           </div>
-          <ul>
-            <li>Conducted data surveying and statistical validation, heavily utilizing advanced Microsoft Excel functions and data processing.</li>
-          </ul>
+          <div class="exp-row">
+            Data surveying and statistical validation, heavily utilizing advanced Microsoft Excel workflows.
+          </div>
         </div>
 
-        <!-- BOC -->
+        <!-- BOC (2 Rows for 2 Lines) -->
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="exp-title">Finance Internship, Global Transaction Banking Department</div>
-              <div class="exp-org">Bank of China</div>
+              <div class="exp-title">Finance Internship</div>
+              <div class="exp-org">Bank of China — Global Transaction Banking Department</div>
             </div>
-            <div class="card-date" style="color: #facc15; background: rgba(250, 204, 21, 0.1); border-color: rgba(250, 204, 21, 0.25);">May 2026 – Jun 2026</div>
+            <div class="card-date">May 2026 – Jun 2026</div>
           </div>
-          <ul>
-            <li>Managed transaction tasks in international settlements and cross-border taxation assessments.</li>
-            <li>Executed quantitative transaction analysis and data reporting via Excel.</li>
-          </ul>
+          <!-- Row 1 -->
+          <div class="exp-row">
+            Taxation, international settlements, and cross-border transaction workflows.
+          </div>
+          <!-- Row 2 -->
+          <div class="exp-row">
+            Excel quantitative data analysis and corporate banking transaction reporting.
+          </div>
         </div>
 
       </div>
