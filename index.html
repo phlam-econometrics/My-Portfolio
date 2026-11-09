@@ -406,12 +406,19 @@
     scroll-behavior: smooth;
   }
 
-  /* ================= 1. Multi-Image Background Gradient Blend ================= */
+  /* Make body relative so the full-page background stretches with scrolling content */
+  body {
+    position: relative;
+    min-height: 100%;
+  }
+
+  /* ================= 1. Full-Page Scrollable Background Canvas ================= */
   .bg-canvas {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: -2;
     overflow: hidden;
     pointer-events: none;
@@ -426,34 +433,38 @@
     background-repeat: no-repeat;
   }
 
-  /* Top image: fades out downward */
+  /* 1st Image (Top of the page): Fades into 2nd image as you scroll */
   .bg-top {
     top: 0;
-    height: 45vh;
-    mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+    height: 42%;
+    mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
   }
 
-  /* Middle image: smooth blend from top and bottom */
+  /* 2nd Image (Middle of the page): Blends from 1st and into 3rd image */
   .bg-mid {
-    top: 30vh;
-    height: 45vh;
-    mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 65%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 65%, transparent 100%);
+    top: 33%;
+    height: 42%;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%);
   }
 
-  /* Bottom image: fades out upward */
+  /* 3rd Image (Bottom of the page): Emerges as you scroll to the end */
   .bg-bot {
+    top: 65%;
+    height: 35%;
     bottom: 0;
-    height: 45vh;
-    mask-image: linear-gradient(to top, black 30%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to top, black 30%, transparent 100%);
+    mask-image: linear-gradient(to top, black 65%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, black 65%, transparent 100%);
   }
 
-  /* Dark frosted overlay to preserve text contrast and readability */
+  /* Dark translucent overlay covering the entire scroll height for text readability */
   .bg-overlay {
-    position: fixed;
-    inset: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(11, 15, 25, 0.88);
     backdrop-filter: blur(2px);
     z-index: -1;
