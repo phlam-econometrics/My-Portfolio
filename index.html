@@ -28,6 +28,11 @@
 
     body {
       background-color: var(--bg);
+      background-image: url('./bg.jpg');
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
       color: var(--text-main);
       font-family: var(--font-sans);
       line-height: 1.6;
@@ -406,26 +411,7 @@
     scroll-behavior: smooth;
   }
 
-  /* ================= 1. Fixed Background (bg.jpg) with Edge-Fading ================= */
-  .bg-fixed-canvas {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    pointer-events: none;
-    background-image: url('bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 1; /* 100% full visibility */
-
-    /* Softly fades the outer edges and bottom into the page background */
-    mask-image: radial-gradient(ellipse at 50% 45%, rgba(0, 0, 0, 1) 55%, rgba(0, 0, 0, 0) 100%);
-    -webkit-mask-image: radial-gradient(ellipse at 50% 45%, rgba(0, 0, 0, 1) 55%, rgba(0, 0, 0, 0) 100%);
-  }
-
-  /* ================= 2. Left Sidebar Navigation (TOC) ================= */
+  /* ================= Left Sidebar Navigation (TOC) ================= */
   .sidebar-toc {
     position: fixed;
     left: 18px;
@@ -541,8 +527,6 @@
   </style>
 </head>
 <body>
-<!-- Fixed Background Image (100% visibility with edge fade) -->
-  <div class="bg-fixed-canvas"></div>
 
   <!-- Left Floating Table of Contents Sidebar -->
   <nav class="sidebar-toc">
