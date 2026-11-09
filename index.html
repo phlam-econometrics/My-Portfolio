@@ -209,7 +209,7 @@
     }
     
     .badge.highlight2 {
-      background: rbga(52, 211, 153, 0.1);
+      background: rgba(52, 211, 153, 0.1);
       color: #34d399;
       border-color: rgba(52, 211, 153, 0.25);
     }
@@ -840,7 +840,6 @@
 
           <!-- Thumbnail Picture Box -->
           <div class="hack-thumbnail-box">
-            <!-- Save image as oxhack-project.png in the same GitHub repo folder -->
             <img src="./oxhack-project.png" alt="OxHack Project Thumbnail" 
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="hack-placeholder">
@@ -850,8 +849,9 @@
 
           <div class="hack-info-group">
             <div class="hack-project-title">AuroraTime</div>
-            <div class="hack-project-title">Team ML Engineer</div>
+            <div class="hack-uni-name" style="margin-top: 4px;">Team ML Engineer</div>
             <div class="hack-date-line">Date: 24th - 25th October, 2026</div>
+          </div> <!-- 👈 Added missing </div> for hack-info-group -->
 
           <div class="hack-links-row">
             <a href="https://devpost.com/software/auroratime" target="_blank" rel="noopener noreferrer" class="hack-btn">
@@ -861,7 +861,7 @@
               💻 GitHub
             </a>
           </div>
-        </div>
+        </div> <!-- 👈 Added missing </div> for hack-square-card -->
 
         <!-- COLUMN 2: WHACK -->
         <div class="hack-square-card">
@@ -872,7 +872,6 @@
 
           <!-- Thumbnail Picture Box -->
           <div class="hack-thumbnail-box">
-            <!-- Save image as whack-project.png in the same GitHub repo folder -->
             <img src="./whack-project.png" alt="WHACK Project Thumbnail" 
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="hack-placeholder">
@@ -882,7 +881,7 @@
 
           <div class="hack-info-group">
             <div class="hack-project-title">BULLISH!</div>
-            <div class="hack-project-title">Team Econometrician</div>
+            <div class="hack-uni-name" style="margin-top: 4px;">Team Econometrician</div>
             <div class="hack-date-line">Date: 7th - 8th November, 2026</div>
           </div>
 
@@ -898,7 +897,6 @@
 
       </div>
     </section>
-
     <!-- AWARDS, COMPETITIONS & AFFILIATION -->
     <section id="awards">
       <h2 class="section-title">Awards, Competitions &amp; Affiliation</h2>
