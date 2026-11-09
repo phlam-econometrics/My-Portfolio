@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio | Quantitative Finance & Economics</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: #111827;
+      --card-hover: #172033;
+      --border: #1f293d;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --accent: #38bdf8;
+      --badge-bg: #1e293b;
+      --tag-bg: rgba(56, 189, 248, 0.1);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 60px;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: all 0.2s; }
+    a:hover { opacity: 0.8; text-decoration: underline; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-content { display: flex; flex-direction: column; gap: 16px; }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #fff;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-weight: 500;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card-bg);
+      padding: 6px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .contact-item a { color: var(--text-main); }
+
+    section { margin-top: 48px; }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      border-left: 3px solid var(--accent);
+      padding-left: 12px;
+    }
+
+    .card-list { display: flex; flex-direction: column; gap: 20px; }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: all 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: #374151;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .card-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      background: var(--tag-bg);
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      font-weight: 600;
+    }
+
+    .card-date {
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.05);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.05);
+      white-space: nowrap;
+    }
+
+    /* Education Clean Typography */
+    .edu-entry { padding: 6px 0; }
+    .edu-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 14px 0;
+    }
+
+    .degree-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .school-name {
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+
+    .skill-category {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .skill-label {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      display: block;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-group { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .badge {
+      background: var(--badge-bg);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .badge.highlight {
+      background: var(--tag-bg);
+      color: var(--accent);
+      border-color: rgba(56, 189, 248, 0.2);
+    }
+
+    /* Experience */
+    .exp-title { font-size: 1.05rem; font-weight: 600; color: #fff; }
+    .exp-org { font-size: 0.95rem; color: var(--accent); font-weight: 500; }
+
+    .card ul {
+      margin-left: 18px;
+      margin-top: 10px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .card ul li { margin-bottom: 4px; }
+
+    /* Projects */
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px;
+      margin-bottom: 16px;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .grade-badge {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .tech-stack {
+      margin-top: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .tech-stack span { color: var(--accent); }
+
+    /* Hackathons (1 Row, 2 Columns Big Square Layout) */
+    .hackathon-grid-2col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .hack-square-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 480px;
+      transition: all 0.25s ease;
+    }
+
+    .hack-square-card:hover {
+      border-color: #374151;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .hack-event-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .hack-uni-name {
+      font-size: 0.95rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .hack-thumbnail-box {
+      width: 100%;
+      height: 190px;
+      margin: 16px 0;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #172033;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+    }
+
+    .hack-thumbnail-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hack-placeholder {
+      width: 100%;
+      height: 100%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+    }
+
+    .hack-project-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .hack-project-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-top: 2px;
+    }
+
+    .hack-date-line {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .hack-links-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .hack-btn {
+      flex: 1;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      padding: 9px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .hack-btn:hover {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Awards Grid */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .award-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .award-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; color: #fff; }
+    .award-role { font-size: 0.85rem; color: var(--accent); font-family: var(--font-mono); margin-bottom: 8px; }
+    .award-detail { font-size: 0.85rem; color: var(--text-muted); }
+
+    footer {
+      margin-top: 80px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      font-family: var(--font-mono);
+    }
+
+    @media (max-width: 700px) {
+      h1 { font-size: 2rem; }
+      .contact-bar { flex-direction: column; gap: 8px; }
+      .card-header { flex-direction: column; }
+      .hackathon-grid-2col { grid-template-columns: 1fr; }
+      .hack-square-card { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER / HERO -->
+    <header>
+      <div class="header-content">
+        <h1>[Your Full Name]</h1>
+        <div class="subtitle">Quantitative Finance &amp; Economics</div>
+        <div class="contact-bar">
+          <div class="contact-item">
+            <span>🇭🇰</span>
+            <a href="tel:+85200000000">+852 Phone Num</a>
+          </div>
+          <div class="contact-item">
+            <span>🇬🇧</span>
+            <a href="tel:+440000000000">+44 Phone Num</a>
+          </div>
+          <div class="contact-item">
+            <span>✉️</span>
+            <a href="mailto:your.email@gmail.com">your.email@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span>🔗</span>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="card-list">
+
+        <!-- SHARED MASTER'S CONTAINER -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <span class="card-badge">Dual Award Master's Degree Program</span>
+            </div>
+            <div class="card-date">Sep 2026 – Jan 2028</div>
+          </div>
+
+          <!-- 1. University of Kent (First) -->
+          <div class="edu-entry">
+            <div class="degree-name">Master of Science in Finance, Investment and Risk</div>
+            <div class="school-name">University of Kent</div>
+          </div>
+
+          <div class="edu-divider"></div>
+
+          <!-- 2. HKBU (Second) -->
+          <div class="edu-entry">
+            <div class="degree-name">Master of Science in Mathematical Finance</div>
+            <div class="school-name">Hong Kong Baptist University</div>
+          </div>
+        </div>
+
+        <!-- 3. UNDERGRADUATE: HSUHK -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <span class="card-badge" style="color: #34d399; background: rgba(52, 211, 153, 0.1); border-color: rgba(52, 211, 153, 0.25);">Undergraduate Degree</span>
+            </div>
+            <div class="card-date">Sep 2022 – Jun 2026</div>
+          </div>
+
+          <div class="edu-entry">
+            <div class="degree-name">Bachelor of Business Administration (Hons) in Economics</div>
+            <div class="school-name">The Hang Seng University of Hong Kong</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2 class="section-title">Technical &amp; Language Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <span class="skill-label">Technical Stack</span>
+          <div class="badge-group">
+            <span class="badge highlight">R</span>
+            <span class="badge highlight">Python</span>
+            <span class="badge highlight">C++</span>
+            <span class="badge">EViews</span>
+            <span class="badge">Excel (Advanced Functions &amp; Shortcuts)</span>
+            <span class="badge">Xero</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <span class="skill-label">Languages</span>
+          <div class="badge-group">
+            <span class="badge">Chinese (Cantonese) (Native)</span>
+            <span class="badge">Chinese (Mandarin) (Fluent, PSC 2B)</span>
+            <span class="badge">English (Fluent, IELTS 7.0)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK EXPERIENCE -->
+    <section id="experience">
+      <h2 class="section-title">Work Experience</h2>
+      <div class="card-list">
+
+        <!-- HKBU RA -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="exp-title">Research Assistant</div>
+              <div class="exp-org">Hong Kong Baptist University</div>
+            </div>
+            <div class="card-date">Sep 2026 – Present</div>
+          </div>
+          <ul>
+            <li>Economics research focusing on data compilation, quantitative empirical modeling, and academic literature review.</li>
+          </ul>
+        </div>
+
+        <!-- Census -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="exp-title">Summer Internship</div>
+              <div class="exp-org">Census and Statistics Department, HKSAR</div>
+            </div>
+            <div class="card-date">Jun 2026 – Aug 2026</div>
+          </div>
+          <ul>
+            <li>Conducted data surveying and statistical validation, heavily utilizing advanced Microsoft Excel functions and data processing.</li>
+          </ul>
+        </div>
+
+        <!-- BOC -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="exp-title">Finance Internship</div>
+              <div class="exp-org">Bank of China — Global Transaction Banking Department</div>
+            </div>
+            <div class="card-date">May 2026 – Jun 2026</div>
+          </div>
+          <ul>
+            <li>Managed transaction tasks in international settlements and cross-border taxation assessments.</li>
+            <li>Executed quantitative transaction analysis and data reporting via Excel.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ACADEMIC PROJECTS -->
+    <section id="projects">
+      <h2 class="section-title">Relevant Academic Projects</h2>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="exp-title">Introduction to Machine Learning Analysis: Applications for Economics and Finance</div>
+          <span class="grade-badge">Grade: A-</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Analysis of the relationship between unemployment rate and global economic factors with Python.
+        </p>
+        <div class="tech-stack">
+          <span>Tech:</span> Python (NumPy, Scikit-learn, yfinance, Pandas, LazyPredict, Seaborn, Matplotlib)
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="exp-title">Financial Time Series for Business Intelligence</div>
+          <span class="grade-badge">Grade: A-</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Time Series Analysis of Econometric Data: Prediction of Productivity with R.
+        </p>
+        <div class="tech-stack">
+          <span>Tech:</span> R (tidyverse, zoo, forecast, tseries, glmnet)
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="exp-title">Categorical Data Analysis</div>
+          <span class="grade-badge">Grade: A-</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Predicting term deposit subscription on bank marketing data with R.
+        </p>
+        <div class="tech-stack">
+          <span>Tech:</span> R (readr, DescTools, glmnet)
+        </div>
+      </div>
+    </section>
+
+    <!-- HACKATHONS (1 ROW, 2 COLUMNS BIG SQUARE CARDS) -->
+    <section id="hackathons">
+      <h2 class="section-title">Hackathons</h2>
+      <div class="hackathon-grid-2col">
+
+        <!-- COLUMN 1: OxHack -->
+        <div class="hack-square-card">
+          <div class="hack-header-group">
+            <h3 class="hack-event-title">OxHack ’26</h3>
+            <div class="hack-uni-name">University of Oxford</div>
+          </div>
+
+          <!-- Thumbnail Picture Box -->
+          <div class="hack-thumbnail-box">
+            <!-- Save image as oxhack-project.png in the same GitHub repo folder -->
+            <img src="./oxhack-project.png" alt="OxHack Project Thumbnail" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="hack-placeholder">
+              <span>🖼️ Add Project Thumbnail</span>
+            </div>
+          </div>
+
+          <div class="hack-info-group">
+            <div class="hack-project-label">Project Name</div>
+            <div class="hack-project-title">&lt;Project Name&gt;</div>
+            <div class="hack-date-line">Date: [e.g., February 2026]</div>
+          </div>
+
+          <div class="hack-links-row">
+            <a href="https://devpost.com" target="_blank" rel="noopener noreferrer" class="hack-btn">
+              🔗 Devpost
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hack-btn">
+              💻 GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- COLUMN 2: WHACK -->
+        <div class="hack-square-card">
+          <div class="hack-header-group">
+            <h3 class="hack-event-title">WHACK ’26</h3>
+            <div class="hack-uni-name">University of Warwick</div>
+          </div>
+
+          <!-- Thumbnail Picture Box -->
+          <div class="hack-thumbnail-box">
+            <!-- Save image as whack-project.png in the same GitHub repo folder -->
+            <img src="./whack-project.png" alt="WHACK Project Thumbnail" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="hack-placeholder">
+              <span>🖼️ Add Project Thumbnail</span>
+            </div>
+          </div>
+
+          <div class="hack-info-group">
+            <div class="hack-project-label">Project Name</div>
+            <div class="hack-project-title">&lt;Project Name&gt;</div>
+            <div class="hack-date-line">Date: [e.g., February 2026]</div>
+          </div>
+
+          <div class="hack-links-row">
+            <a href="https://devpost.com" target="_blank" rel="noopener noreferrer" class="hack-btn">
+              🔗 Devpost
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hack-btn">
+              💻 GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- AWARDS, COMPETITIONS & AFFILIATION -->
+    <section id="awards">
+      <h2 class="section-title">Awards, Competitions &amp; Affiliation</h2>
+      <div class="grid-2">
+
+        <div class="award-card">
+          <div>
+            <div class="award-title">WorldQuant International Quant Championship 2026</div>
+            <div class="award-role">Silver Level, Stage 2 Competitor</div>
+          </div>
+          <div class="award-detail">Competed in quantitative alpha signal construction and portfolio simulation.</div>
+        </div>
+
+        <div class="award-card">
+          <div>
+            <div class="award-title">HSUHK EAF Investment Competition &amp; ESG Investment Challenge 2026</div>
+            <div class="award-role">Final Round Competitor</div>
+          </div>
+          <div class="award-detail">Generated returns of <strong>13.78%</strong> and <strong>10.52%</strong> in 3 months respectively.</div>
+        </div>
+
+        <div class="award-card">
+          <div>
+            <div class="award-title">Assoc. of Chinese Internal Auditors Scholarship</div>
+            <div class="award-role">Best Progress 2025/26 (HKD 10,000)</div>
+          </div>
+          <div class="award-detail">Recognized for outstanding academic development.</div>
+        </div>
+
+        <div class="award-card">
+          <div>
+            <div class="award-title">UKC Computing Society</div>
+            <div class="award-role">Member</div>
+          </div>
+          <div class="award-detail">University of Kent technical and computing society.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; 2026 [Your Full Name]. All Rights Reserved.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
