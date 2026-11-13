@@ -722,6 +722,21 @@
       .hackathon-grid-2col { grid-template-columns: 1fr; }
       .hack-square-card { min-height: auto; }
     }
+
+    /* ================= Unified Smooth Hover for All Cards ================= */
+  .kent-board-card,
+  .project-card,
+  .award-card {
+    transition: all 0.25s ease;
+  }
+
+  .kent-board-card:hover,
+  .project-card:hover,
+  .award-card:hover {
+    border-color: #374151;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  }
   </style>
 </head>
 <body>
