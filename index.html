@@ -479,52 +479,6 @@
     text-decoration: none;
   }
 
-  Save the picture you just uploaded as kent-logo.png into the same folder as your
-index.html on GitHub.
-
-Here is the updated code integrating the official logo into the signboard card's
-footer:
-
-1. Tabbed HTML (Replace the Master's card inside #education)
-
-        <!-- University of Kent Sign-Post Board Style Card -->
-        <div class="kent-board-card">
-          <!-- Top Yellow Header Block -->
-          <div class="kent-board-header">
-            <div class="kent-board-title">Dual Award Master's Degree Program</div>
-            <div class="kent-board-subtitle">
-              <span>Hong Kong Baptist University &amp; University of Kent</span>
-              <span class="kent-board-date">Sep 2026 – Jan 2028</span>
-            </div>
-          </div>
-
-          <!-- Main Matte Dark Directory Body -->
-          <div class="kent-board-body">
-            <!-- 1. University of Kent (First) -->
-            <div class="kent-board-item">
-              <div class="kent-item-inst">University of Kent</div>
-              <div class="kent-item-degree">Master of Science in Finance, Investment and Risk</div>
-            </div>
-
-            <!-- 2. HKBU (Second) -->
-            <div class="kent-board-item">
-              <div class="kent-item-inst">Hong Kong Baptist University</div>
-              <div class="kent-item-degree">Master of Science in Mathematical Finance</div>
-            </div>
-          </div>
-
-          <!-- Bottom Footer with Official Kent Logo & Yellow Angle Slash -->
-          <div class="kent-board-footer">
-            <div class="kent-logo-wrapper">
-              <img src="./kent-logo.png" alt="University of Kent Logo" class="kent-footer-logo">
-            </div>
-            <!-- Angled yellow corner slice matching the physical sign -->
-            <div class="kent-yellow-slash"></div>
-          </div>
-        </div>
-
-2. Tabbed CSS (Update the footer styles in <style>)
-
   /* ================= Kent Signboard Master's Card ================= */
   .kent-board-card {
     background: #11141a;
@@ -609,7 +563,7 @@ footer:
     border-left: 2px solid #FFDD00;
   }
 
-  /* 3. Bottom Footer with Kent Logo */
+  /* 3. Bottom Footer with Pure White Kent Logo */
   .kent-board-footer {
     position: relative;
     padding: 10px 22px;
@@ -621,20 +575,12 @@ footer:
     border-top: 1px solid rgba(255, 255, 255, 0.05);
   }
 
-  .kent-logo-wrapper {
-    display: inline-flex;
-    align-items: center;
-    background: #ffffff;
-    padding: 3px 8px;
-    border-radius: 4px;
-    z-index: 2;
-  }
-
   .kent-footer-logo {
-    height: 24px;
+    height: 28px;
     width: auto;
     display: block;
     object-fit: contain;
+    z-index: 2;
   }
 
   /* Angled Yellow Graphic on bottom-right corner */
@@ -802,7 +748,6 @@ footer:
           <!-- Top Yellow Header Block -->
           <div class="kent-board-header">
             <div class="kent-board-title">Dual Award Master's Degree Program</div>
-            <div class="kent-board-subtitle">
               <span class="kent-board-date">Sep 2026 – Jan 2028</span>
             </div>
           </div>
@@ -822,11 +767,9 @@ footer:
             </div>
           </div>
 
-          <!-- Bottom Footer with Official Kent Logo & Yellow Angle Slash -->
+          <!-- Bottom Footer with White Logo & Yellow Angle Slash -->
           <div class="kent-board-footer">
-            <div class="kent-logo-wrapper">
-              <img src="./kent-logo.png" alt="University of Kent Logo" class="kent-footer-logo">
-            </div>
+            <img src="./kent-logo.png" alt="University of Kent Logo" class="kent-footer-logo">
             <!-- Angled yellow corner slice matching the physical sign -->
             <div class="kent-yellow-slash"></div>
           </div>
