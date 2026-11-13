@@ -495,6 +495,11 @@
     background-color: #FFDD00 !important;
     color: #000000;
     padding: 18px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   .kent-board-title {
@@ -505,28 +510,17 @@
     line-height: 1.2;
   }
 
-  .kent-board-subtitle {
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-top: 6px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
   .kent-board-date {
     font-family: var(--font-mono);
     font-size: 0.82rem;
     font-weight: 700;
     color: #000000;
-    background: rgba(0, 0, 0, 0.1);
-    padding: 2px 8px;
+    background: rgba(0, 0, 0, 0.12);
+    padding: 4px 10px;
     border-radius: 4px;
+    white-space: nowrap;
   }
-
+  
   /* 2. Main Directory Body (Solid Matte Black) */
   .kent-board-body {
     background-color: #111827 !important; /* 👈 Eliminates the transparency bug */
@@ -747,9 +741,7 @@
           <!-- Top Yellow Header Block -->
           <div class="kent-board-header">
             <div class="kent-board-title">Dual Award Master's Degree Program</div>
-            <div class="kent-board-subtitle">
-              <span>Hong Kong Baptist University &amp; University of Kent</span>
-              <span class="kent-board-date">Sep 2026 – Jan 2028</span>
+            <div class="kent-board-date">Sep 2026 – Jan 2028</div>
             </div>
           </div>
 
