@@ -479,27 +479,20 @@
     text-decoration: none;
   }
 
-  /* ================= Kent Signboard Master's Card ================= */
+  /* ================= Kent Signboard Master's Card (100% Solid) ================= */
   .kent-board-card {
-    background: #11141a;
-    border: 1px solid #232936;
-    border-radius: 8px;
+    background-color: #111827 !important; /* 100% solid, stops transparency */
+    border: 1px solid #1f293d;
+    border-radius: 12px;
     overflow: hidden;
     position: relative;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     margin-bottom: 20px;
-    transition: all 0.25s ease;
-  }
-
-  .kent-board-card:hover {
-    border-color: #374151;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
   }
 
   /* 1. Top Yellow Block */
   .kent-board-header {
-    background: #FFDD00; /* Kent signature yellow */
+    background-color: #FFDD00 !important;
     color: #000000;
     padding: 18px 22px;
   }
@@ -515,7 +508,7 @@
   .kent-board-subtitle {
     font-size: 0.88rem;
     font-weight: 600;
-    color: #2b2b2b;
+    color: #1a1a1a;
     margin-top: 6px;
     display: flex;
     justify-content: space-between;
@@ -529,13 +522,14 @@
     font-size: 0.82rem;
     font-weight: 700;
     color: #000000;
-    background: rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 0.1);
     padding: 2px 8px;
     border-radius: 4px;
   }
 
-  /* 2. Main Directory Body */
+  /* 2. Main Directory Body (Solid Matte Black) */
   .kent-board-body {
+    background-color: #111827 !important; /* 👈 Eliminates the transparency bug */
     padding: 22px 22px 32px;
     display: flex;
     flex-direction: column;
@@ -571,8 +565,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #0d1015;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: #0b0f19 !important; /* Solid dark footer */
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .kent-footer-logo {
@@ -590,7 +584,7 @@
     bottom: 0;
     width: 80px;
     height: 100%;
-    background: #FFDD00;
+    background-color: #FFDD00 !important;
     clip-path: polygon(35% 0%, 100% 0%, 100% 100%, 0% 100%);
     z-index: 1;
   }
@@ -743,16 +737,23 @@
       <h2 class="section-title">Education</h2>
       <div class="card-list">
 
-        <!-- University of Kent Sign-Post Board Style Card -->
+        <!-- EDUCATION -->
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="card-list">
+
+        <!-- 1. Master's Degree (Kent Signboard Style) -->
         <div class="kent-board-card">
           <!-- Top Yellow Header Block -->
           <div class="kent-board-header">
             <div class="kent-board-title">Dual Award Master's Degree Program</div>
+            <div class="kent-board-subtitle">
+              <span>Hong Kong Baptist University &amp; University of Kent</span>
               <span class="kent-board-date">Sep 2026 – Jan 2028</span>
             </div>
           </div>
 
-          <!-- Main Matte Dark Directory Body -->
+          <!-- Main Matte Dark Directory Body (100% Solid Background) -->
           <div class="kent-board-body">
             <!-- 1. University of Kent (First) -->
             <div class="kent-board-item">
@@ -770,12 +771,11 @@
           <!-- Bottom Footer with White Logo & Yellow Angle Slash -->
           <div class="kent-board-footer">
             <img src="./kent-logo.png" alt="University of Kent Logo" class="kent-footer-logo">
-            <!-- Angled yellow corner slice matching the physical sign -->
             <div class="kent-yellow-slash"></div>
           </div>
-        </div>
+        </div> <!-- Closes kent-board-card cleanly -->
 
-        <!-- 3. UNDERGRADUATE: HSUHK -->
+        <!-- 2. Undergraduate Degree (HSUHK) -->
         <div class="card">
           <div class="card-header">
             <div>
@@ -788,10 +788,10 @@
             <div class="degree-name">Bachelor of Business Administration (Hons) in Economics</div>
             <div class="school-name">The Hang Seng University of Hong Kong</div>
           </div>
-        </div>
+        </div> <!-- Closes HSUHK card cleanly -->
 
-      </div>
-    </section>
+      </div> <!-- Closes card-list -->
+    </section> <!-- Closes education -->
 
     <!-- SKILLS -->
     <section id="skills">
