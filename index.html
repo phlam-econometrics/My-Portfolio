@@ -479,13 +479,14 @@
     text-decoration: none;
   }
 
-  /* ================= Kent Signboard Master's Card (100% Solid) ================= */
+  /* ================= Unified Kent Signboard Card ================= */
   .kent-board-card {
-    background-color: #111827 !important; /* 100% solid, stops transparency */
+    background-color: #111827 !important;
     border: 1px solid #1f293d;
     border-radius: 12px;
-    overflow: hidden;
-    position: relative;
+    overflow: hidden; /* Glues the header, body, and footer together */
+    display: flex;
+    flex-direction: column;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     margin-bottom: 20px;
   }
@@ -500,6 +501,8 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
+    margin: 0;
+    border-radius: 0;
   }
 
   .kent-board-title {
@@ -520,38 +523,39 @@
     border-radius: 4px;
     white-space: nowrap;
   }
-  
-  /* 2. Main Directory Body (Solid Matte Black) */
+
+  /* 2. Middle Directory Body */
   .kent-board-body {
-    background-color: #111827 !important; /* 👈 Eliminates the transparency bug */
+    background-color: #111827 !important;
     padding: 22px 22px 32px;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    margin: 0;
   }
 
   .kent-board-item {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 4px;
   }
 
   .kent-item-inst {
-    font-size: 1.02rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: #ffffff;
     letter-spacing: -0.01em;
   }
 
   .kent-item-degree {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     color: #cbd5e1;
     font-weight: 400;
     padding-left: 12px;
     border-left: 2px solid #FFDD00;
   }
 
-  /* 3. Bottom Footer with Pure White Kent Logo */
+  /* 3. Bottom Footer */
   .kent-board-footer {
     position: relative;
     padding: 10px 22px;
@@ -559,8 +563,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #0b0f19 !important; /* Solid dark footer */
+    background-color: #0b0f19 !important;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 0;
   }
 
   .kent-footer-logo {
@@ -571,7 +576,6 @@
     z-index: 2;
   }
 
-  /* Angled Yellow Graphic on bottom-right corner */
   .kent-yellow-slash {
     position: absolute;
     right: 0;
@@ -731,43 +735,35 @@
       <h2 class="section-title">Education</h2>
       <div class="card-list">
 
-        <!-- EDUCATION -->
-    <section id="education">
-      <h2 class="section-title">Education</h2>
-      <div class="card-list">
-
-        <!-- 1. Master's Degree (Kent Signboard Style) -->
+        <!-- 1. SINGLE UNIFIED KENT BOARD (GLUED TOGETHER, NO GAPS) -->
         <div class="kent-board-card">
-          <!-- Top Yellow Header Block -->
+          <!-- Part 1: Top Yellow Header -->
           <div class="kent-board-header">
             <div class="kent-board-title">Dual Award Master's Degree Program</div>
             <div class="kent-board-date">Sep 2026 – Jan 2028</div>
-            </div>
           </div>
 
-          <!-- Main Matte Dark Directory Body (100% Solid Background) -->
+          <!-- Part 2: Middle Directory Body -->
           <div class="kent-board-body">
-            <!-- 1. University of Kent (First) -->
             <div class="kent-board-item">
               <div class="kent-item-inst">University of Kent</div>
               <div class="kent-item-degree">Master of Science in Finance, Investment and Risk</div>
             </div>
 
-            <!-- 2. HKBU (Second) -->
             <div class="kent-board-item">
               <div class="kent-item-inst">Hong Kong Baptist University</div>
               <div class="kent-item-degree">Master of Science in Mathematical Finance</div>
             </div>
           </div>
 
-          <!-- Bottom Footer with White Logo & Yellow Angle Slash -->
+          <!-- Part 3: Bottom Footer with Logo & Yellow Slash -->
           <div class="kent-board-footer">
             <img src="./kent-logo.png" alt="University of Kent Logo" class="kent-footer-logo">
             <div class="kent-yellow-slash"></div>
           </div>
-        </div> <!-- Closes kent-board-card cleanly -->
+        </div> <!-- Closes kent-board-card -->
 
-        <!-- 2. Undergraduate Degree (HSUHK) -->
+        <!-- 2. UNDERGRADUATE DEGREE (HSUHK) -->
         <div class="card">
           <div class="card-header">
             <div>
@@ -780,11 +776,11 @@
             <div class="degree-name">Bachelor of Business Administration (Hons) in Economics</div>
             <div class="school-name">The Hang Seng University of Hong Kong</div>
           </div>
-        </div> <!-- Closes HSUHK card cleanly -->
+        </div>
 
-      </div> <!-- Closes card-list -->
-    </section> <!-- Closes education -->
-
+      </div>
+    </section>
+    
     <!-- SKILLS -->
     <section id="skills">
       <h2 class="section-title">Technical &amp; Language Skills</h2>
