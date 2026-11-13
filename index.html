@@ -587,6 +587,31 @@
     z-index: 1;
   }
 
+  /* ================= HSUHK Directory Style (Kent Pattern) ================= */
+  .hsuhk-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 8px;
+  }
+
+  /* 1st Row: School Name (Larger, Bold, Pure White) */
+  .hsuhk-school {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+
+  /* 2nd Row: Degree (Smaller, Regular, Pure White with Left Border) */
+  .hsuhk-degree {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #ffffff;
+    padding-left: 12px;
+    border-left: 2px solid #34d399; /* Matching green accent line */
+  }
+
   /* Custom scrollbar for sidebar */
   .sidebar-toc::-webkit-scrollbar {
     width: 4px;
@@ -763,7 +788,7 @@
           </div>
         </div> <!-- Closes kent-board-card -->
 
-        <!-- 2. UNDERGRADUATE DEGREE (HSUHK) -->
+        <!-- 2. UNDERGRADUATE DEGREE (HSUHK - Kent Style Hierarchy) -->
         <div class="card">
           <div class="card-header">
             <div>
@@ -772,12 +797,12 @@
             <div class="card-date" style="color: #facc15; background: rgba(250, 204, 21, 0.1); border-color: rgba(250, 204, 21, 0.25);">Sep 2022 – Jun 2026</div>
           </div>
 
-          <div class="edu-entry">
-            <div class="degree-name">Bachelor of Business Administration (Hons) in Economics</div>
-            <div class="school-name">The Hang Seng University of Hong Kong</div>
+          <!-- School Name 1st Row, Degree 2nd Row (Both White, Different Font Sizes) -->
+          <div class="hsuhk-entry">
+            <div class="hsuhk-school">The Hang Seng University of Hong Kong</div>
+            <div class="hsuhk-degree">Bachelor of Business Administration (Hons) in Economics</div>
           </div>
         </div>
-
       </div>
     </section>
     
