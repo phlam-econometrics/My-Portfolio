@@ -479,6 +479,134 @@
     text-decoration: none;
   }
 
+  /* ================= Kent Signboard Master's Card ================= */
+  .kent-board-card {
+    background: #11141a;
+    border: 1px solid #232936;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
+    transition: all 0.25s ease;
+  }
+
+  .kent-board-card:hover {
+    border-color: #374151;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  /* 1. Top Yellow Block */
+  .kent-board-header {
+    background: #FFDD00; /* Kent signature yellow */
+    color: #000000;
+    padding: 18px 22px;
+  }
+
+  .kent-board-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #000000;
+    line-height: 1.2;
+  }
+
+  .kent-board-subtitle {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #2b2b2b;
+    margin-top: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .kent-board-date {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #000000;
+    background: rgba(0, 0, 0, 0.08);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  /* 2. Main Directory Body */
+  .kent-board-body {
+    padding: 22px 22px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .kent-board-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .kent-item-inst {
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+
+  .kent-item-degree {
+    font-size: 0.88rem;
+    color: #cbd5e1;
+    font-weight: 400;
+    padding-left: 12px;
+    border-left: 2px solid #FFDD00;
+  }
+
+  /* 3. Bottom Kent Footer with Yellow Angle */
+  .kent-board-footer {
+    position: relative;
+    padding: 10px 22px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #0d1015;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .kent-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    color: #ffffff;
+    z-index: 2;
+  }
+
+  .kent-logo-text span {
+    font-weight: 400;
+    font-size: 0.65rem;
+    color: #94a3b8;
+  }
+
+  .kent-logo-text strong {
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  /* Angled Yellow Graphic on bottom-right corner */
+  .kent-yellow-slash {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 80px;
+    height: 100%;
+    background: #FFDD00;
+    clip-path: polygon(35% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+  }
+
   /* Custom scrollbar for sidebar */
   .sidebar-toc::-webkit-scrollbar {
     width: 4px;
@@ -627,27 +755,40 @@
       <h2 class="section-title">Education</h2>
       <div class="card-list">
 
-        <!-- SHARED MASTER'S CONTAINER -->
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <span class="card-badge">Dual Award Master's Degree Program</span>
+        <!-- University of Kent Sign-Post Board Style Card -->
+        <div class="kent-board-card">
+          <!-- Top Yellow Header Block -->
+          <div class="kent-board-header">
+            <div class="kent-board-title">Dual Award Master's Degree Program</div>
+            <div class="kent-board-subtitle">
+              <span>Hong Kong Baptist University &amp; University of Kent</span>
+              <span class="kent-board-date">Sep 2026 – Jan 2028</span>
             </div>
-            <div class="card-date" style="color: #facc15; background: rgba(250, 204, 21, 0.1); border-color: rgba(250, 204, 21, 0.25);">Sep 2026 – Jan 2028</div>
           </div>
 
-          <!-- 1. University of Kent (First) -->
-          <div class="edu-entry">
-            <div class="degree-name">Master of Science in Finance, Investment and Risk</div>
-            <div class="school-name">University of Kent</div>
+          <!-- Main Matte Dark Directory Body -->
+          <div class="kent-board-body">
+            <!-- 1. University of Kent (First) -->
+            <div class="kent-board-item">
+              <div class="kent-item-inst">University of Kent</div>
+              <div class="kent-item-degree">Master of Science in Finance, Investment and Risk</div>
+            </div>
+
+            <!-- 2. HKBU (Second) -->
+            <div class="kent-board-item">
+              <div class="kent-item-inst">Hong Kong Baptist University</div>
+              <div class="kent-item-degree">Master of Science in Mathematical Finance</div>
+            </div>
           </div>
 
-          <div class="edu-divider"></div>
-
-          <!-- 2. HKBU (Second) -->
-          <div class="edu-entry">
-            <div class="degree-name">Master of Science in Mathematical Finance</div>
-            <div class="school-name">Hong Kong Baptist University</div>
+          <!-- Bottom Footer with Kent Branding & Yellow Angle Slash -->
+          <div class="kent-board-footer">
+            <div class="kent-logo-text">
+              <span>University of</span>
+              <strong>Kent</strong>
+            </div>
+            <!-- Angled yellow corner slice matching the physical sign -->
+            <div class="kent-yellow-slash"></div>
           </div>
         </div>
 
