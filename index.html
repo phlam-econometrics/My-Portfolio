@@ -606,11 +606,11 @@
     border-left: 2px solid #FFDD00;
   }
 
-  /* 3. Bottom Footer */
+  /* ================= Kent Board Footer (Bigger Logo) ================= */
   .kent-board-footer {
     position: relative;
-    padding: 10px 22px;
-    height: 52px;
+    padding: 12px 24px;
+    height: 68px; /* Expanded from 52px to fit the larger logo */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -620,18 +620,20 @@
   }
 
   .kent-footer-logo {
-    height: 28px;
+    height: 44px; /* Scaled up from 28px for much better visibility */
     width: auto;
+    max-width: 200px;
     display: block;
     object-fit: contain;
     z-index: 2;
   }
 
+  /* Angled Yellow Graphic scaled to match */
   .kent-yellow-slash {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 80px;
+    width: 95px;
     height: 100%;
     background-color: #FFDD00 !important;
     clip-path: polygon(35% 0%, 100% 0%, 100% 100%, 0% 100%);
